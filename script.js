@@ -2,7 +2,7 @@ const PLACEHOLDER = "images/placeholder.jpg";
 
 const menuData = {
   "MANDI": [
-    { name: "Chicken Shahi Biryani", price: 240, img: "images/mandi/chicken-shahi-biryani.jpg" },
+    { name: "Chicken Shahi Biryani", price: 240, img: "images/drinks/loginBanner.png"},
     { name: "Mutton Shahi Biryani", price: 349, img: "images/mandi/mutton-shahi-biryani.jpg" },
     { name: "Veg Biryani", price: 179, img: "images/mandi/veg-biryani.jpg" }
   ],
