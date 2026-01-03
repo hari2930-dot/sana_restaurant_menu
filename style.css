@@ -138,7 +138,6 @@ body {
   color: #f26a2e;
   font-weight: 700;
 }
-
 .hero-slider {
   position: relative;
   height: 280px;
@@ -147,13 +146,12 @@ body {
 
 .slides {
   display: flex;
-  width: 300%;
   height: 100%;
-  animation: slideMove 18s infinite;
+  transition: transform 1s ease-in-out; /* SMOOTH */
 }
 
 .slide {
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -189,16 +187,3 @@ body {
   font-size: 14px;
   color: #eee;
 }
-
-/* SLIDE ANIMATION */
-@keyframes slideMove {
-  0% { transform: translateX(0); }
-  30% { transform: translateX(0); }
-
-  35% { transform: translateX(-100%); }
-  65% { transform: translateX(-100%); }
-
-  70% { transform: translateX(-200%); }
-  100% { transform: translateX(-200%); }
-}
-
