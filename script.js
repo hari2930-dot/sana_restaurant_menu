@@ -165,3 +165,16 @@ searchInput.addEventListener("input", () => {
     card.style.display = card.textContent.toLowerCase().includes(q) ? "" : "none";
   });
 });
+
+// HERO SLIDER LOGIC
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
+
+let currentSlide = 0;
+const slideInterval = 2000; // 2 SECONDS PER SLIDE
+
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+}, slideInterval);
+
