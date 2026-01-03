@@ -165,4 +165,36 @@ searchInput.addEventListener("input", () => {
     card.style.display = card.textContent.toLowerCase().includes(q) ? "" : "none";
   });
 });
+const slidesContainer = document.getElementById("slides");
+let slides = document.querySelectorAll(".slide");
+
+// CLONE FIRST SLIDE (for seamless loop)
+const firstClone = slides[0].cloneNode(true);
+slidesContainer.appendChild(firstClone);
+
+slides = document.querySelectorAll(".slide");
+
+let index = 0;
+
+// TIMING CONTROLS (adjust here)
+const PAUSE_TIME = 2500;   // 2.5 seconds STOP
+const SLIDE_TIME = 900;    // slide animation duration
+
+function moveSlide() {
+  index++;
+  slidesContainer.style.transition = `transform ${SLIDE_TIME}ms ease-in-out`;
+  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+
+  // when reaching clone → snap back silently
+  if (index === slides.length - 1) {
+    setTimeout(() => {
+      slidesContainer.style.transition = "none";
+      slidesContainer.style.transform = "translateX(0)";
+      index = 0;
+    }, SLIDE_TIME);
+  }
+}
+
+// LOOP WITH PAUSE
+setInterval(moveSlide, PAUSE_TIME + SLIDE_TIME);
 
