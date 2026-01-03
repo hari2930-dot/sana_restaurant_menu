@@ -165,31 +165,4 @@ searchInput.addEventListener("input", () => {
     card.style.display = card.textContent.toLowerCase().includes(q) ? "" : "none";
   });
 });
-// HERO SLIDER – SEAMLESS INFINITE LOOP
-const slidesContainer = document.getElementById("slides");
-let slides = document.querySelectorAll(".slide");
 
-const slideInterval = 3000; // 3 seconds (adjustable)
-let index = 0;
-
-// CLONE FIRST SLIDE AND APPEND
-const firstClone = slides[0].cloneNode(true);
-slidesContainer.appendChild(firstClone);
-
-// UPDATE SLIDES NODELIST
-slides = document.querySelectorAll(".slide");
-
-setInterval(() => {
-  index++;
-  slidesContainer.style.transition = "transform 0.9s ease-in-out";
-  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
-
-  // WHEN REACHING CLONE → SNAP BACK
-  if (index === slides.length - 1) {
-    setTimeout(() => {
-      slidesContainer.style.transition = "none";
-      slidesContainer.style.transform = "translateX(0)";
-      index = 0;
-    }, 900); // same as transition duration
-  }
-}, slideInterval);
